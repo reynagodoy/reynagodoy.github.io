@@ -68,6 +68,72 @@
   }
   .nav-cta:hover { color: var(--tan); border-color: var(--tan); }
 
+  /* NAV LINKS */
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+  .nav-link {
+    font-size: 11px;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-link:hover { color: var(--ink); }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 22px;
+    height: 0.5px;
+    background: var(--ink);
+    transition: all 0.3s ease;
+  }
+  /* Mobile menu overlay */
+  .nav-mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(250,247,242,0.98);
+    z-index: 99;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 36px;
+  }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-link {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-mobile-link:hover { color: var(--tan); }
+  .nav-mobile-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--ink);
+    line-height: 1;
+  }
+
   /* HERO */
   .hero {
     position: relative;
@@ -411,6 +477,13 @@
 
   /* GALLERY — Option A: wider gaps + warm tone spacer squares */
   .gallery-section { padding: 0; background: var(--cream); }
+  .gallery-title-wrap { padding: 64px 48px 32px; }
+  .gallery-headline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    color: var(--ink);
+  }
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -565,6 +638,8 @@
   /* RESPONSIVE */
   @media (max-width: 900px) {
     nav { padding: 18px 24px; }
+    .nav-links { display: none; }
+    .nav-hamburger { display: flex; }
     section { padding: 72px 24px; }
     .selected-work-section { padding: 72px 24px; }
     .hero-content { padding: 0 24px 72px; }
@@ -584,12 +659,12 @@
     .testimonials-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; }
     .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-    .gallery-item.blank-cream { aspect-ratio: unset; height: 48px; }
-    .gallery-item.blank-cream:nth-child(4)  { grid-column: 2; }
-    .gallery-item.blank-cream:nth-child(9)  { grid-column: 1; }
-    .gallery-item.blank-cream:nth-child(14) { grid-column: 2; }
-    .gallery-item.blank-cream:nth-child(19) { grid-column: 1; }
-    .gallery-item.blank-cream:nth-child(24) { grid-column: 2; }
+    .gallery-item.blank-cream { aspect-ratio: unset; height: 40px; }
+    .sp1 { grid-column: 2; }
+    .sp2 { grid-column: 1; }
+    .sp3 { grid-column: 2; }
+    .sp4 { grid-column: 1; }
+    .sp5 { grid-column: 2; }
     .who-card-title { font-size: 18px; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
@@ -601,8 +676,29 @@
 <!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Reyna Godoy</a>
-  <a href="mailto:studio@reynagodoy.com" class="nav-cta">Let's Talk</a>
+  <div class="nav-links">
+    <a href="#the-work" class="nav-link">The Work</a>
+    <a href="#what-i-design" class="nav-link">What I Design</a>
+    <a href="#how-we-work" class="nav-link">How We Work</a>
+    <a href="#gallery" class="nav-link">Gallery</a>
+    <a href="#about" class="nav-link">About</a>
+    <a href="mailto:studio@reynagodoy.com" class="nav-cta">Let's Talk</a>
+  </div>
+  <button class="nav-hamburger" onclick="openMenu()" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="nav-mobile-menu" id="mobileMenu">
+  <button class="nav-mobile-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
+  <a href="#the-work" class="nav-mobile-link" onclick="closeMenu()">The Work</a>
+  <a href="#what-i-design" class="nav-mobile-link" onclick="closeMenu()">What I Design</a>
+  <a href="#how-we-work" class="nav-mobile-link" onclick="closeMenu()">How We Work Together</a>
+  <a href="#gallery" class="nav-mobile-link" onclick="closeMenu()">Gallery</a>
+  <a href="#about" class="nav-mobile-link" onclick="closeMenu()">About Me</a>
+  <a href="mailto:studio@reynagodoy.com" class="nav-mobile-link" onclick="closeMenu()">Let's Talk</a>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -616,7 +712,7 @@
 </section>
 
 <!-- WHAT I DO -->
-<section>
+<section id="the-work">
   <div class="work-grid">
     <div class="work-text reveal">
       <p class="section-label">The work</p>
@@ -632,7 +728,7 @@
 </section>
 
 <!-- CATEGORIES -->
-<section class="who-section">
+<section class="who-section" id="what-i-design">
   <h2 class="who-headline reveal">What I design.</h2>
   <div class="who-grid">
     <div class="who-card reveal">
@@ -656,7 +752,7 @@
 </div>
 
 <!-- HOW IT WORKS -->
-<section>
+<section id="how-we-work">
   <div class="how-inner">
     <h2 class="how-headline reveal">How we work together.</h2>
     <svg class="how-squiggle reveal" width="100%" viewBox="0 0 880 36" preserveAspectRatio="none">
@@ -754,8 +850,11 @@
   </div>
 </section>
 
-<!-- GALLERY — Option A: wider gaps + warm tone spacer squares -->
-<div class="gallery-section">
+<!-- GALLERY -->
+<div class="gallery-section" id="gallery">
+  <div class="gallery-title-wrap">
+    <h2 class="gallery-headline">Gallery</h2>
+  </div>
   <div class="gallery-grid">
 
     <!-- Row 1 (formerly row 3): wide WE>I toast + DSC06904 + UNReasonable_2765 -->
@@ -766,12 +865,12 @@
     <!-- Row 2: UK22_59 + 110518 + cream spacer + aerial -->
     <div class="gallery-item"><img src="images/UK22_59.jpeg" alt="UK22_59.jpeg"></div>
     <div class="gallery-item"><img src="images/110518_unreasonable_05.jpeg" alt="110518_unreasonable_05.jpeg"></div>
-    <div class="gallery-item blank-cream"></div>
+    <div class="gallery-item blank-cream sp1"></div>
     <div class="gallery-item"><img src="images/20161116_UnreasonableImpact_CK2_2390.jpeg" alt="20161116_UnreasonableImpact_CK2_2390.jpeg"></div>
 
     <!-- Row 3: portrait left + cream spacer + wide right -->
     <div class="gallery-item"><img src="images/20161105_UnreasonableImpact_CK2_9794.jpeg" alt="20161105_UnreasonableImpact_CK2_9794.jpeg"></div>
-    <div class="gallery-item blank-cream"></div>
+    <div class="gallery-item blank-cream sp2"></div>
     <div class="gallery-item wide"><img src="images/DSC06713.jpeg" alt="DSC06713.jpeg"></div>
 
     <!-- Row 4: UNReasonable_21805 + Chivas + 1108 + EventportPJ -->
@@ -782,14 +881,14 @@
 
     <!-- Row 5: PJ bar + cream spacer + mountain dinner wide -->
     <div class="gallery-item"><img src="images/PJ_Bar.jpeg" alt="PJ_Bar.jpeg"></div>
-    <div class="gallery-item blank-cream"></div>
+    <div class="gallery-item blank-cream sp3"></div>
     <div class="gallery-item wide"><img src="images/Summit_02.jpeg" alt="Summit_02.jpeg"></div>
 
     <!-- Row 6: trust walk + UNReasonable_2704 + woman in red hijab + cream spacer far right -->
     <div class="gallery-item"><img src="images/UNReasonable_1524.jpeg" alt="UNReasonable_1524.jpeg"></div>
     <div class="gallery-item"><img src="images/UNReasonable_2704.jpeg" alt="UNReasonable_2704.jpeg"></div>
     <div class="gallery-item"><img src="images/20160711_ProjectLiteracyLab_CaitlinKleiboer_CVK_7527.jpeg" alt="20160711_ProjectLiteracyLab_CaitlinKleiboer_CVK_7527.jpeg"></div>
-    <div class="gallery-item blank-cream"></div>
+    <div class="gallery-item blank-cream sp4"></div>
 
     <!-- Row 7: wide firelit barn + small group + 20161106 -->
     <div class="gallery-item wide"><img src="images/1022_unreasonable_12.jpeg" alt="1022_unreasonable_12.jpeg"></div>
@@ -798,14 +897,14 @@
 
     <!-- Row 8: guitar + cream spacer + UK outdoors wide -->
     <div class="gallery-item"><img src="images/1107_unreasonable_35.jpeg" alt="1107_unreasonable_35.jpeg"></div>
-    <div class="gallery-item blank-cream"></div>
+    <div class="gallery-item blank-cream sp5"></div>
     <div class="gallery-item wide"><img src="images/UK22_50.jpeg" alt="UK22_50.jpeg"></div>
 
   </div>
 </div>
 
 <!-- ABOUT -->
-<section>
+<section id="about">
   <div class="about-grid">
     <div class="about-img-wrap reveal">
       <img class="about-img" src="images/Reyna.jpeg" alt="Reyna.jpeg">
@@ -857,6 +956,15 @@
 </footer>
 
 <script>
+  function openMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
