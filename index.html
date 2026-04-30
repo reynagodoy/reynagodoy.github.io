@@ -569,7 +569,7 @@
     .selected-work-section { padding: 72px 24px; }
     .hero-content { padding: 0 24px 72px; }
     .hero { align-items: flex-end; }
-    .hero-headline { font-size: clamp(36px, 8vw, 56px); }
+    .hero-headline { font-size: clamp(32px, 7vw, 56px); letter-spacing: -0.02em; }
     .hero-overlay { background: linear-gradient(to top, rgba(10,8,6,0.95) 0%, rgba(10,8,6,0.6) 45%, rgba(10,8,6,0.15) 100%); }
     .work-grid { grid-template-columns: 1fr; gap: 40px; }
     .work-img { aspect-ratio: 16/9; }
@@ -586,6 +586,13 @@
     .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
+    /* Vary spacer positions on mobile using nth-child to scatter left/right */
+    .gallery-item.blank-cream:nth-of-type(1)  { order: 0; }
+    .gallery-item.blank-cream:nth-child(4)  { grid-column: 2; }
+    .gallery-item.blank-cream:nth-child(9)  { grid-column: 1; }
+    .gallery-item.blank-cream:nth-child(14) { grid-column: 2; }
+    .gallery-item.blank-cream:nth-child(19) { grid-column: 1; }
+    .gallery-item.blank-cream:nth-child(24) { grid-column: 2; }
   }
 </style>
 </head>
@@ -797,6 +804,22 @@
   </div>
 </div>
 
+<!-- ABOUT -->
+<section>
+  <div class="about-grid">
+    <div class="about-img-wrap reveal">
+      <img class="about-img" src="images/Reyna.jpeg" alt="Reyna.jpeg">
+    </div>
+    <div class="about-text reveal reveal-delay-2">
+      <p class="section-label">About Me</p>
+      <p>I am a contemplator of details and a gatherer of people, always have been.</p>
+      <p>My background spans production, program design, facilitation, space design, and creative direction — I think of myself equally as a creative and a doer, and this work sits exactly at that intersection. The through-line across all of it is the same: a belief that great experiences are never the product of one big gesture. They're the accumulation of many small, deliberate ones, and that accumulation is what I'm here to build.</p>
+      <p>Orchestrating is what I'm best at. I work across functions and perspectives with ease, synthesizing the goals of leadership teams, people ops, external partners, and internal committees into a single coherent experience. I think ten steps ahead and stay fully present. I plan for every scenario and leave room for the unexpected.</p>
+      <p>People tell me my events feel seamless. That's the intention. The seams are there — I just prefer you don't see them.</p>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="testimonials-section">
   <p class="section-label reveal">What clients say</p>
@@ -816,22 +839,6 @@
     <div class="testimonial reveal reveal-delay-3">
       <p class="testimonial-text">"An amazing collective week, as professional an event as I've seen in my career."</p>
       <span class="testimonial-attr">— ADC Group, 2026</span>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section>
-  <div class="about-grid">
-    <div class="about-img-wrap reveal">
-      <img class="about-img" src="images/Reyna.jpeg" alt="Reyna.jpeg">
-    </div>
-    <div class="about-text reveal reveal-delay-2">
-      <p class="section-label">About Me</p>
-      <p>I am a contemplator of details and a gatherer of people, always have been.</p>
-      <p>My background spans production, program design, facilitation, space design, and creative direction — I think of myself equally as a creative and a doer, and this work sits exactly at that intersection. The through-line across all of it is the same: a belief that great experiences are never the product of one big gesture. They're the accumulation of many small, deliberate ones, and that accumulation is what I'm here to build.</p>
-      <p>Orchestrating is what I'm best at. I work across functions and perspectives with ease, synthesizing the goals of leadership teams, people ops, external partners, and internal committees into a single coherent experience. I think ten steps ahead and stay fully present. I plan for every scenario and leave room for the unexpected.</p>
-      <p>People tell me my events feel seamless. That's the intention. The seams are there — I just prefer you don't see them.</p>
     </div>
   </div>
 </section>
