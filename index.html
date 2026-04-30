@@ -584,15 +584,14 @@
     .testimonials-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; }
     .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    footer { flex-direction: column; gap: 8px; text-align: center; }
-    /* Vary spacer positions on mobile using nth-child to scatter left/right */
-    .gallery-item.blank-cream:nth-of-type(1)  { order: 0; }
+    .gallery-item.blank-cream { aspect-ratio: unset; height: 48px; }
     .gallery-item.blank-cream:nth-child(4)  { grid-column: 2; }
     .gallery-item.blank-cream:nth-child(9)  { grid-column: 1; }
     .gallery-item.blank-cream:nth-child(14) { grid-column: 2; }
     .gallery-item.blank-cream:nth-child(19) { grid-column: 1; }
     .gallery-item.blank-cream:nth-child(24) { grid-column: 2; }
+    .about-grid { grid-template-columns: 1fr; gap: 40px; }
+    footer { flex-direction: column; gap: 8px; text-align: center; }
   }
 </style>
 </head>
@@ -658,7 +657,7 @@
 <!-- HOW IT WORKS -->
 <section>
   <div class="how-inner">
-    <h2 class="how-headline reveal">How we work.</h2>
+    <h2 class="how-headline reveal">How we work together.</h2>
     <svg class="how-squiggle reveal" width="100%" viewBox="0 0 880 36" preserveAspectRatio="none">
       <defs>
         <marker id="arr-sq" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
