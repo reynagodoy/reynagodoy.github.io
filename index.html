@@ -477,7 +477,7 @@
 
   /* GALLERY — Option A: wider gaps + warm tone spacer squares */
   .gallery-section { padding: 0; background: var(--cream); }
-  .gallery-title-wrap { padding: 64px 48px 32px; }
+  .gallery-title-wrap { padding: 64px 48px 20px; }
   .gallery-headline {
     font-family: var(--serif);
     font-size: clamp(28px, 3.5vw, 42px);
@@ -514,6 +514,13 @@
 
   /* TESTIMONIALS */
   .testimonials-section { background: #F0EBE3; }
+  .testimonials-headline {
+    font-family: var(--serif);
+    font-size: clamp(28px, 3.5vw, 42px);
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 48px;
+  }
   .testimonials-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -659,7 +666,7 @@
     .testimonials-grid { grid-template-columns: 1fr; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; }
     .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-    .gallery-item.blank-cream { aspect-ratio: unset; height: 40px; }
+    .gallery-item.blank-cream { aspect-ratio: 1; height: auto; }
     .sp1 { grid-column: 2; }
     .sp2 { grid-column: 1; }
     .sp3 { grid-column: 2; }
@@ -680,6 +687,7 @@
     <a href="#the-work" class="nav-link">The Work</a>
     <a href="#what-i-design" class="nav-link">What I Design</a>
     <a href="#how-we-work" class="nav-link">How We Work</a>
+    <a href="#portfolio" class="nav-link">Portfolio</a>
     <a href="#gallery" class="nav-link">Gallery</a>
     <a href="#about" class="nav-link">About</a>
     <a href="mailto:studio@reynagodoy.com" class="nav-cta">Let's Talk</a>
@@ -695,6 +703,7 @@
   <a href="#the-work" class="nav-mobile-link" onclick="closeMenu()">The Work</a>
   <a href="#what-i-design" class="nav-mobile-link" onclick="closeMenu()">What I Design</a>
   <a href="#how-we-work" class="nav-mobile-link" onclick="closeMenu()">How We Work Together</a>
+  <a href="#portfolio" class="nav-mobile-link" onclick="closeMenu()">Portfolio</a>
   <a href="#gallery" class="nav-mobile-link" onclick="closeMenu()">Gallery</a>
   <a href="#about" class="nav-mobile-link" onclick="closeMenu()">About Me</a>
   <a href="mailto:studio@reynagodoy.com" class="nav-mobile-link" onclick="closeMenu()">Let's Talk</a>
@@ -795,8 +804,8 @@
 </div>
 
 <!-- SELECTED WORK — staggered text/photo pairs -->
-<section class="selected-work-section">
-  <p class="section-label reveal">Selected work</p>
+<section class="selected-work-section" id="portfolio">
+  <p class="section-label reveal">Portfolio</p>
 
   <div class="stagger-grid">
 
@@ -853,7 +862,7 @@
 <!-- GALLERY -->
 <div class="gallery-section" id="gallery">
   <div class="gallery-title-wrap">
-    <h2 class="gallery-headline">Gallery</h2>
+    <p class="section-label">Gallery</p>
   </div>
   <div class="gallery-grid">
 
@@ -957,8 +966,14 @@
 
 <script>
   function openMenu() {
-    document.getElementById('mobileMenu').classList.add('open');
-    document.body.style.overflow = 'hidden';
+    const menu = document.getElementById('mobileMenu');
+    if (menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      document.body.style.overflow = '';
+    } else {
+      menu.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
   }
   function closeMenu() {
     document.getElementById('mobileMenu').classList.remove('open');
