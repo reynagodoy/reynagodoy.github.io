@@ -91,7 +91,10 @@
   .selected-work-section { padding: 64px 48px; }
   .stagger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; max-width: 1200px; }
   .stagger-text { background: var(--ink); padding: 56px 52px; display: flex; flex-direction: column; justify-content: center; aspect-ratio: 4/3; }
-  .stagger-text.alt { background: #2E2218; }
+  .stagger-text.alt { background: #E0D5C4; }
+  .stagger-text.alt .stagger-tag { color: #8B6F47; font-weight: 500; }
+  .stagger-text.alt .stagger-title { color: #1A1814; font-weight: 500; }
+  .stagger-text.alt .stagger-desc { color: #3D3830; }
   .stagger-tag { font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--tan-light); margin-bottom: 16px; }
   .stagger-title { font-family: var(--serif); font-size: 26px; font-weight: 400; color: #FAF7F2; line-height: 1.2; margin-bottom: 20px; }
   .stagger-desc { font-size: 14px; line-height: 1.75; color: rgba(250,247,242,0.6); font-weight: 300; }
@@ -166,6 +169,9 @@
     .stagger-grid { grid-template-columns: 1fr; }
     .stagger-photo { display: none; }
     .stagger-text { aspect-ratio: unset; min-height: unset; padding: 36px 28px; }
+    .stagger-text.alt .stagger-tag { color: #8B6F47; font-weight: 500; }
+    .stagger-text.alt .stagger-title { color: #1A1814; font-weight: 500; }
+    .stagger-text.alt .stagger-desc { color: #3D3830; }
     .testimonials-grid { grid-template-columns: 1fr; }
     /* GALLERY — no spacers on mobile */
     .gallery-title-wrap { padding: 40px 16px 16px; }
@@ -323,6 +329,8 @@
       <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="HOSTING_IanMatteson_0155.jpeg">
     </div>
     <div class="stagger-text alt reveal reveal-delay-1">
+      <span class="stagger-tag">Community Experience</span>
+      <h3 class="stagger-title">Summit Outside</h3>
       <p class="stagger-desc">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, bringing together entrepreneurs, artists, and thought leaders for talks, outdoor activities, and communal experiences — most notably a quarter-mile-long shared dinner table set against the mountain landscape.</p>
     </div>
 
