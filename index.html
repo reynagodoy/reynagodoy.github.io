@@ -95,12 +95,8 @@
   .stagger-photo { overflow: hidden; aspect-ratio: 4/3; background: #2a2620; }
   .stagger-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
   .stagger-photo:hover img { transform: scale(1.03); }
-  .stagger-featured { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
-  .stagger-featured .stagger-text { aspect-ratio: unset; min-height: 380px; }
-  .stagger-featured .stagger-photo { aspect-ratio: unset; min-height: 380px; }
-  .stagger-featured .stagger-title { font-size: 32px; }
   .client-roster { margin-top: 56px; padding-top: 32px; border-top: 0.5px solid var(--border); max-width: 1200px; }
-  .client-roster-label { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-muted); margin-bottom: 14px; }
+  .client-roster-label { font-size: 10px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--tan); margin-bottom: 14px; }
   .client-roster-names { font-size: 14px; line-height: 1.8; color: var(--ink-soft); font-weight: 300; }
 
   /* GALLERY */
@@ -163,25 +159,16 @@
     .who-grid { grid-template-columns: 1fr; }
     .who-card-title { font-size: 18px; }
     .how-steps { grid-template-columns: 1fr 1fr; gap: 28px; }
-    /* PORTFOLIO: text only on mobile */
+    /* PORTFOLIO: text only on mobile, no photos */
     .stagger-grid { grid-template-columns: 1fr; }
-    .stagger-featured { grid-template-columns: 1fr; }
-    .stagger-featured .stagger-text { min-height: unset; aspect-ratio: unset; }
-    .stagger-featured .stagger-photo { display: none; }
     .stagger-photo { display: none; }
     .stagger-text { aspect-ratio: unset; min-height: unset; padding: 36px 28px; }
     .testimonials-grid { grid-template-columns: 1fr; }
-    /* GALLERY */
+    /* GALLERY — no spacers on mobile */
     .gallery-title-wrap { padding: 40px 16px 16px; }
     .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; }
     .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-    .gallery-item.blank-cream { aspect-ratio: 1; height: auto; }
-    /* Spacer positioning — varied left/right */
-    .sp1 { grid-column: 2; }
-    .sp2 { grid-column: 1; }
-    .sp3 { grid-column: 2; }
-    .sp4 { grid-column: 1; }
-    .sp5 { grid-column: 2; }
+    .gallery-item.blank-cream { display: none; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-img { aspect-ratio: 3/2; object-position: center 25%; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
@@ -194,10 +181,9 @@
 <nav>
   <a href="#" class="nav-logo">Reyna Godoy</a>
   <div class="nav-links">
-    <a href="#the-work" class="nav-link">The Work</a>
     <a href="#what-i-design" class="nav-link">What I Design</a>
     <a href="#how-we-work" class="nav-link">The Process</a>
-    <a href="#portfolio" class="nav-link">My Work</a>
+    <a href="#portfolio" class="nav-link">Clients</a>
     <a href="#gallery" class="nav-link">Gallery</a>
     <a href="#about" class="nav-link">About</a>
     <a href="mailto:studio@reynagodoy.com" class="nav-cta">Let's Talk</a>
@@ -210,10 +196,9 @@
 <!-- MOBILE MENU -->
 <div class="nav-mobile-menu" id="mobileMenu">
   <button class="nav-mobile-close" onclick="closeMenu()" aria-label="Close menu">&times;</button>
-  <a href="#the-work" class="nav-mobile-link" onclick="closeMenu()">The Work</a>
   <a href="#what-i-design" class="nav-mobile-link" onclick="closeMenu()">What I Design</a>
   <a href="#how-we-work" class="nav-mobile-link" onclick="closeMenu()">The Process</a>
-  <a href="#portfolio" class="nav-mobile-link" onclick="closeMenu()">My Work</a>
+  <a href="#portfolio" class="nav-mobile-link" onclick="closeMenu()">Clients</a>
   <a href="#gallery" class="nav-mobile-link" onclick="closeMenu()">Gallery</a>
   <a href="#about" class="nav-mobile-link" onclick="closeMenu()">About Me</a>
   <a href="mailto:studio@reynagodoy.com" class="nav-mobile-link" onclick="closeMenu()">Let's Talk</a>
@@ -234,8 +219,7 @@
 <section id="the-work">
   <div class="work-grid">
     <div class="work-text reveal">
-      <p class="section-label">The work</p>
-      <p>Human connection has never mattered more.</p>
+      <p class="section-label">Human connection has never mattered more.</p>
       <p>The difference between a mediocre event and an exceptional one? A clear purpose, a thoughtful flow, and someone holding the thread from start to finish.</p>
       <p>That's what I do. I partner with organizations to design and produce experiences worth showing up for, holding the big idea while managing every detail that makes it real. Working together means you have one person who owns the whole thing: the venue, the vendors, the flow, the feeling, and the outcome it's meant to produce.</p>
       <p>Because the best offsites aren't about transferring information anymore. They're about building the connective tissue, between people, between functions, and between a team and the work that actually matters.</p>
@@ -313,62 +297,60 @@
   <img src="images/1108_unreasonable_10.jpeg" alt="1108_unreasonable_10.jpeg">
 </div>
 
-<!-- PORTFOLIO / MY WORK -->
+<!-- PORTFOLIO / CLIENTS -->
 <section class="selected-work-section" id="portfolio">
-  <p class="section-label reveal">Some of my work</p>
+  <p class="section-label reveal">A few of my clients</p>
 
   <div class="stagger-grid">
 
-    <!-- ROW 1: ADC Group — featured full width -->
-    <div class="stagger-featured reveal">
-      <div class="stagger-text">
-        <span class="stagger-tag">Company Off-Site · 2026</span>
-        <h3 class="stagger-title">ADC Group</h3>
-        <p class="stagger-desc">End-to-end design and production of a company off-site for ADC Group, bringing a distributed team together from 3 international offices for a 3-day experience designed to deepen relationships, sharpen strategy, and strengthen culture.</p>
-      </div>
-      <div class="stagger-photo">
-        <img src="images/UK22_84-5K.jpeg" alt="UK22_84-5K.jpeg">
-      </div>
+    <!-- ROW 1: text left / photo right -->
+    <div class="stagger-text reveal">
+      <span class="stagger-tag">Company Off-Site · 2026</span>
+      <h3 class="stagger-title">ADC Group</h3>
+      <p class="stagger-desc">End-to-end design and production of a company off-site for ADC Group, bringing a distributed team together from 3 international offices for a 3-day experience designed to deepen relationships, sharpen strategy, and strengthen culture.</p>
+    </div>
+    <div class="stagger-photo reveal reveal-delay-1">
+      <img src="images/UK22_84-5K.jpeg" alt="UK22_84-5K.jpeg">
     </div>
 
-    <!-- ROW 2: Summit Outside — photo right, text left -->
-    <div class="stagger-text reveal">
+    <!-- ROW 2: photo left / text right -->
+    <div class="stagger-photo reveal">
+      <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="HOSTING_IanMatteson_0155.jpeg">
+    </div>
+    <div class="stagger-text reveal reveal-delay-1">
       <span class="stagger-tag">Community Experience</span>
       <h3 class="stagger-title">Summit Outside</h3>
       <p class="stagger-desc">Designed and produced an immersive multi-day gathering at Powder Mountain, Utah for Summit Series, bringing together entrepreneurs, artists, and thought leaders for talks, outdoor activities, and communal experiences — most notably a quarter-mile-long shared dinner table set against the mountain landscape.</p>
     </div>
-    <div class="stagger-photo reveal reveal-delay-1">
-      <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="HOSTING_IanMatteson_0155.jpeg">
-    </div>
 
-    <!-- ROW 3: Global Pharma × IDEO — photo left, text right -->
-    <div class="stagger-photo reveal">
-      <img src="images/UNReasonable_2885.jpg" alt="UNReasonable_2885.jpg">
-    </div>
-    <div class="stagger-text reveal reveal-delay-1">
+    <!-- ROW 3: text left / photo right -->
+    <div class="stagger-text reveal">
       <span class="stagger-tag">C-Suite Leadership Program · Multi-year</span>
       <h3 class="stagger-title">Global Pharmaceutical Company × IDEO</h3>
       <p class="stagger-desc">Partnered with IDEO to design a scalable senior leadership program activated across the US and Europe, a multi-year engagement bringing C-suite leaders together at a global scale.</p>
     </div>
+    <div class="stagger-photo reveal reveal-delay-1">
+      <img src="images/UNReasonable_2885.jpeg" alt="UNReasonable_2885.jpeg">
+    </div>
 
-    <!-- ROW 4: Alliance — text left, photo right -->
-    <div class="stagger-text reveal">
+    <!-- ROW 4: photo left / text right -->
+    <div class="stagger-photo reveal">
+      <img src="images/120318_unreasonable_07.jpeg" alt="120318_unreasonable_07.jpeg">
+    </div>
+    <div class="stagger-text reveal reveal-delay-1">
       <span class="stagger-tag">Annual Gathering · 5 Consecutive Years</span>
       <h3 class="stagger-title">Alliance College-Ready Public Schools</h3>
       <p class="stagger-desc">For five consecutive years, designed and delivered the annual gathering for 1,400+ education professionals across 26 schools in Los Angeles, in both in-person and virtual formats.</p>
     </div>
-    <div class="stagger-photo reveal reveal-delay-1">
-      <img src="images/120318_unreasonable_07.jpeg" alt="120318_unreasonable_07.jpeg">
-    </div>
 
-    <!-- ROW 5: UpTogether — photo left, text right -->
-    <div class="stagger-photo reveal">
-      <img src="images/1108_unreasonable_06.jpeg" alt="1108_unreasonable_06.jpeg">
-    </div>
-    <div class="stagger-text reveal reveal-delay-1">
+    <!-- ROW 5: text left / photo right -->
+    <div class="stagger-text reveal">
       <span class="stagger-tag">Team Off-Site · 3 Days</span>
       <h3 class="stagger-title">UpTogether</h3>
       <p class="stagger-desc">End-to-end delivery of a 3-day off-site for a distributed nonprofit team. The experience shifted relationships from, in their words, "transactional to transformational."</p>
+    </div>
+    <div class="stagger-photo reveal reveal-delay-1">
+      <img src="images/1108_unreasonable_06.jpeg" alt="1108_unreasonable_06.jpeg">
     </div>
 
   </div>
