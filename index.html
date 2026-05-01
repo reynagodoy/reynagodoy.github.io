@@ -41,6 +41,7 @@
   /* SECTIONS — tightened from 100px to 64px */
   section { padding: 64px 48px; }
   .section-label { font-size: 10px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--tan); margin-bottom: 40px; }
+  .section-label-nowrap { white-space: nowrap; }
 
   /* HERO */
   .hero { position: relative; height: 100vh; min-height: 600px; overflow: hidden; display: flex; align-items: flex-end; }
@@ -166,7 +167,7 @@
     .testimonials-grid { grid-template-columns: 1fr; }
     /* GALLERY — no spacers on mobile */
     .gallery-title-wrap { padding: 40px 16px 16px; }
-    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; padding: 8px; grid-auto-flow: dense; }
     .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
     .gallery-item.blank-cream { display: none; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -219,7 +220,7 @@
 <section id="the-work">
   <div class="work-grid">
     <div class="work-text reveal">
-      <p class="section-label">Human connection has never mattered more.</p>
+      <p class="section-label section-label-nowrap">Human connection has never mattered more.</p>
       <p>The difference between a mediocre event and an exceptional one? A clear purpose, a thoughtful flow, and someone holding the thread from start to finish.</p>
       <p>That's what I do. I partner with organizations to design and produce experiences worth showing up for, holding the big idea while managing every detail that makes it real. Working together means you have one person who owns the whole thing: the venue, the vendors, the flow, the feeling, and the outcome it's meant to produce.</p>
       <p>Because the best offsites aren't about transferring information anymore. They're about building the connective tissue, between people, between functions, and between a team and the work that actually matters.</p>
