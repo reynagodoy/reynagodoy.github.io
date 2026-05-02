@@ -114,6 +114,10 @@
   .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; transition: transform 0.5s ease; }
   .gallery-item:hover img { transform: scale(1.05); }
   .gallery-item.blank-cream { background: #E0D5C4; }
+  .photo-credit { padding: 12px 48px 16px; background: var(--cream); border-top: 0.5px solid var(--border); }
+  .photo-credit p { font-size: 10px; font-weight: 300; letter-spacing: 0.04em; color: var(--ink-muted); text-align: right; }
+  .photo-credit a { color: var(--tan); text-decoration: none; border-bottom: 0.5px solid var(--tan-light); padding-bottom: 1px; }
+  .photo-credit a:hover { color: var(--ink); }
 
   /* ABOUT */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1200px; }
@@ -361,7 +365,18 @@
       <p class="stagger-desc">End-to-end delivery of a 3-day off-site for a distributed nonprofit team. The experience shifted relationships from, in their words, "transactional to transformational."</p>
     </div>
     <div class="stagger-photo reveal reveal-delay-1">
-      <img src="images/1108_unreasonable_06.jpeg" alt="1108_unreasonable_06.jpeg">
+      <img src="images/1108_unreasonable_06.jpeg" alt="1108_unreasonable_06.jpeg" style="object-position: center 60%;">
+    </div>
+
+    <!-- ROW 6: photo left / text right — cream -->
+    <div class="stagger-photo reveal">
+      <img src="images/1107_unreasonable_35.png" alt="1107_unreasonable_35.png">
+    </div>
+    <div class="stagger-text alt reveal reveal-delay-1">
+      <span class="stagger-tag">Global Impact Accelerator Programs · 7 Years</span>
+      <h3 class="stagger-title">Unreasonable × Barclays, Accenture &amp; Pearson</h3>
+      <p class="stagger-desc">Over seven years, I designed and delivered the in-person and community experience for one of the world's most ambitious impact accelerator programs — built from the ground up. A curated fellowship of entrepreneurs, institutions, and investors who gathered in extraordinary locations around the world to scale solutions to the most pressing global challenges.</p>
+      <p class="stagger-desc" style="margin-top:16px;">A private island in Malaysia. A manor house in the English countryside. A game reserve in South Africa. Thirty-plus programs across four continents, $50M in partnership contracts, and an NPS of 88.</p>
     </div>
 
   </div>
@@ -418,11 +433,14 @@
     <div class="gallery-item"><img src="images/Copy_of_UNReasonable_4053.jpeg" alt="Copy_of_UNReasonable_4053.jpeg"></div>
     <div class="gallery-item"><img src="images/20161106_UnreasonableImpact_CK2_0037.jpeg" alt="20161106_UnreasonableImpact_CK2_0037.jpeg"></div>
 
-    <!-- Row 8: guitar + cream spacer col2 + UK wide -->
-    <div class="gallery-item"><img src="images/1107_unreasonable_35.jpeg" alt="1107_unreasonable_35.jpeg"></div>
+    <!-- Row 8: theatre speaker + cream spacer col2 + UK wide -->
+    <div class="gallery-item"><img src="images/1107_unreasonable_01.jpeg" alt="1107_unreasonable_01.jpeg"></div>
     <div class="gallery-item blank-cream sp5"></div>
     <div class="gallery-item wide"><img src="images/UK22_50.jpeg" alt="UK22_50.jpeg"></div>
 
+  </div>
+  <div class="photo-credit">
+    <p>Majority of these beautiful images by <a href="https://chetstrange.com/" target="_blank" rel="noopener">Strange Visuals</a></p>
   </div>
 </div>
 
