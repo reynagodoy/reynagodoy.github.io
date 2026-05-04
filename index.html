@@ -279,29 +279,38 @@
           <path d="M2 1L8 5L2 9" fill="none" stroke="#C4A882" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </marker>
       </defs>
-      <path d="M 10,18 C 50,6 70,30 110,18 C 150,6 170,30 210,18 C 250,6 270,30 310,18 C 350,6 370,30 410,18 C 450,6 470,30 510,18 C 550,6 570,30 610,18 C 650,6 670,30 710,18 C 750,6 770,30 810,18 C 830,10 840,22 855,18"
-            fill="none" stroke="#C4A882" stroke-width="1.2" opacity="0.6" marker-end="url(#arr-sq)"/>
+      <path id="squiggle-path" d="M 10,18 C 50,6 70,30 110,18 C 150,6 170,30 210,18 C 250,6 270,30 310,18 C 350,6 370,30 410,18 C 450,6 470,30 510,18 C 550,6 570,30 610,18 C 650,6 670,30 710,18 C 750,6 770,30 810,18 C 830,10 840,22 855,18"
+            fill="none" stroke="#C4A882" stroke-width="1.2" opacity="0.6" marker-end="url(#arr-sq)"
+            style="stroke-dasharray: 1200; stroke-dashoffset: 1200;"/>
     </svg>
+    <style>
+      @keyframes drawSquiggle {
+        to { stroke-dashoffset: 0; }
+      }
+      #squiggle-path.animated {
+        animation: drawSquiggle 1.6s ease-out forwards;
+      }
+    </style>
     <div class="how-steps">
       <div class="how-step reveal">
         <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">01</div>
         <div class="how-step-title">Discovery</div>
-        <p class="how-step-text">We talk about your goals, your people, and what this moment needs to accomplish. I ask the questions your team has already considered and ones you haven't thought of yet.</p>
+        <p class="how-step-text">We talk about your goals, your people, and what this moment needs to accomplish. I ask the questions your team has already considered and ones you haven't yet considered.</p>
       </div>
       <div class="how-step reveal reveal-delay-1">
         <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">02</div>
         <div class="how-step-title">Design, Planning and Production</div>
-        <p class="how-step-text">I handle everything: venue sourcing, timelines, supplier coordination, budget tracking, event flow, creative details, contingencies. You stay informed, not overwhelmed.</p>
+        <p class="how-step-text">I handle everything: venue sourcing, timelines, supplier coordination, budget tracking, event flow, and creative details. You stay informed, not overwhelmed.</p>
       </div>
       <div class="how-step reveal reveal-delay-2">
         <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">03</div>
         <div class="how-step-title">Delivery on the Day</div>
-        <p class="how-step-text">I own the day. Every detail is managed so that you and your team can be fully present and enjoy the experience you worked to create.</p>
+        <p class="how-step-text">I own the day. Every detail is managed so that you and your team can be fully present and enjoy what you worked to create.</p>
       </div>
       <div class="how-step reveal reveal-delay-3">
         <div class="who-card-num" style="font-size:44px;font-weight:500;font-style:italic;color:#C4A882;line-height:1;margin-bottom:20px;">04</div>
         <div class="how-step-title">Reflect and Measure</div>
-        <p class="how-step-text">Good events deserve a proper close. After the experience wraps, we run a structured retrospective, assess outcomes against the original goals, and document what worked, so future gatherings are built on a stronger foundation.</p>
+        <p class="how-step-text">Good events deserve a proper close. After the experience wraps, we run a structured retrospective, assess outcomes against the original goals, and document what worked, so every future gathering builds on a stronger one.</p>
       </div>
     </div>
   </div>
@@ -419,7 +428,7 @@
 
     <!-- Row 6: trust walk + 2704 + hijab + cream spacer col4 -->
     <div class="gallery-item"><img src="images/UNReasonable_1524.jpeg" alt="UNReasonable_1524.jpeg"></div>
-    <div class="gallery-item"><img src="images/111218_unreasonable_09.jpg" alt="111218_unreasonable_09.jpg"></div>
+    <div class="gallery-item" style="overflow:hidden;"><img src="images/WhatsApp_Image_2026-04-22_at_15_25_56.jpeg" alt="WhatsApp_Image_2026-04-22_at_15_25_56.jpeg" style="object-position: center 80%;"></div>
     <div class="gallery-item"><img src="images/20160711_ProjectLiteracyLab_CaitlinKleiboer_CVK_7527.jpeg" alt="20160711_ProjectLiteracyLab_CaitlinKleiboer_CVK_7527.jpeg"></div>
     <div class="gallery-item blank-cream sp4"></div>
 
@@ -508,7 +517,17 @@
   }
   const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        if (e.target.classList.contains('how-squiggle')) {
+          setTimeout(() => {
+            const path = document.getElementById('squiggle-path');
+            if (path) path.classList.add('animated');
+          }, 200);
+        }
+      }
+    });
   }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
   reveals.forEach(el => observer.observe(el));
   const nav = document.querySelector('nav');
