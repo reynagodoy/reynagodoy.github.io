@@ -88,7 +88,7 @@
   .how-step-text { font-size: 15px; line-height: 1.75; color: var(--ink-muted); }
 
   /* PORTFOLIO */
-  .selected-work-section { padding: 64px 48px; }
+  .selected-work-section { padding: 32px 48px 64px; }
   .stagger-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; max-width: 1200px; }
   .stagger-text { background: var(--ink); padding: 56px 52px; display: flex; flex-direction: column; justify-content: center; aspect-ratio: 4/3; }
   .stagger-text.alt { background: #E0D5C4; }
@@ -107,7 +107,7 @@
 
   /* GALLERY */
   .gallery-section { padding: 0; background: var(--cream); }
-  .gallery-title-wrap { padding: 64px 48px 20px; }
+  .gallery-title-wrap { padding: 32px 48px 20px; }
   .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; padding: 12px; }
   .gallery-item { overflow: hidden; aspect-ratio: 1; background: #2a2620; }
   .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
@@ -174,6 +174,7 @@
     .stagger-grid { grid-template-columns: 1fr; }
     .stagger-photo { display: none; }
     .stagger-text { aspect-ratio: unset; min-height: unset; padding: 36px 28px; }
+    .mobile-hide { display: none; }
     .mobile-teaser-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; }
     .mobile-teaser-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
     .stagger-text.alt .stagger-tag { color: #8B6F47; font-weight: 500; }
@@ -321,8 +322,8 @@
   <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="">
   <img src="images/UNReasonable_2885.jpeg" alt="">
   <img src="images/120318_unreasonable_07.jpeg" alt="">
-  <img src="images/1108_unreasonable_06.jpeg" alt="">
   <img src="images/1107_unreasonable_35.png" alt="">
+  <img src="images/1108_unreasonable_06.jpeg" alt="">
 </div>
 
 <!-- PORTFOLIO / CLIENTS -->
@@ -415,12 +416,12 @@
     <div class="gallery-item mobile-only"><img src="images/Screenshot_2023-08-21_at_7_33_58_PM.jpg" alt="Screenshot_2023-08-21_at_7_33_58_PM.jpg"></div>
 
     <!-- Row 3: portrait + cream spacer col2 + wide clifftop -->
-    <div class="gallery-item"><img src="images/20161105_UnreasonableImpact_CK2_9794.jpeg" alt="20161105_UnreasonableImpact_CK2_9794.jpeg"></div>
+    <div class="gallery-item mobile-hide"><img src="images/20161105_UnreasonableImpact_CK2_9794.jpeg" alt="20161105_UnreasonableImpact_CK2_9794.jpeg"></div>
     <div class="gallery-item blank-cream sp2"></div>
     <div class="gallery-item wide"><img src="images/DSC06713.jpeg" alt="DSC06713.jpeg"></div>
 
     <!-- Row 4: four squares -->
-    <div class="gallery-item"><img src="images/UNReasonable_21805.jpeg" alt="UNReasonable_21805.jpeg"></div>
+    <div class="gallery-item mobile-hide"><img src="images/UNReasonable_21805.jpeg" alt="UNReasonable_21805.jpeg"></div>
     <div class="gallery-item"><img src="images/ChivasTheVenture-23_copy.jpeg" alt="ChivasTheVenture-23_copy.jpeg"></div>
     <div class="gallery-item"><img src="images/1108_unreasonable_10.jpeg" alt="1108_unreasonable_10.jpeg"></div>
     <div class="gallery-item"><img src="images/EventportPJ-9221-1d2b4682.jpeg" alt="EventportPJ-9221-1d2b4682.jpeg"></div>
@@ -431,8 +432,8 @@
     <div class="gallery-item wide"><img src="images/Summit_02.jpeg" alt="Summit_02.jpeg"></div>
 
     <!-- Row 6: trust walk + 2704 + hijab + cream spacer col4 -->
-    <div class="gallery-item"><img src="images/UNReasonable_1524.jpeg" alt="UNReasonable_1524.jpeg"></div>
-    <div class="gallery-item" style="overflow:hidden;"><img src="images/WhatsApp_Image_2026-04-22_at_15_25_56.jpeg" alt="WhatsApp_Image_2026-04-22_at_15_25_56.jpeg" style="object-position: center 80%;"></div>
+    <div class="gallery-item mobile-hide"><img src="images/UNReasonable_1524.jpeg" alt="UNReasonable_1524.jpeg"></div>
+    <div class="gallery-item mobile-hide" style="overflow:hidden;"><img src="images/WhatsApp_Image_2026-04-22_at_15_25_56.jpeg" alt="WhatsApp_Image_2026-04-22_at_15_25_56.jpeg" style="object-position: center 80%;"></div>
     <div class="gallery-item"><img src="images/20160711_ProjectLiteracyLab_CaitlinKleiboer_CVK_7527.jpeg" alt="20160711_ProjectLiteracyLab_CaitlinKleiboer_CVK_7527.jpeg"></div>
     <div class="gallery-item blank-cream sp4"></div>
 
