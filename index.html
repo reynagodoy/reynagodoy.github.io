@@ -173,6 +173,8 @@
     .stagger-grid { grid-template-columns: 1fr; }
     .stagger-photo { display: none; }
     .stagger-text { aspect-ratio: unset; min-height: unset; padding: 36px 28px; }
+    .mobile-teaser-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; padding: 0; }
+    .mobile-teaser-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
     .stagger-text.alt .stagger-tag { color: #8B6F47; font-weight: 500; }
     .stagger-text.alt .stagger-title { color: #1A1814; font-weight: 500; }
     .stagger-text.alt .stagger-desc { color: #3D3830; }
@@ -184,7 +186,8 @@
     .gallery-item.mobile-only { display: block; }
     .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
     .gallery-item.blank-cream { display: none; }
-    .interlude-mobile-only { display: block; }
+    .mobile-teaser-gallery { display: none; }
+  .interlude-mobile-only { display: block; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .about-img { aspect-ratio: 3/2; object-position: center 25%; }
     footer { flex-direction: column; gap: 8px; text-align: center; }
@@ -265,11 +268,6 @@
   </div>
 </section>
 
-<!-- INTERLUDE: mobile only -->
-<div class="interlude interlude-mobile-only" style="display:none;">
-  <img src="images/1108_unreasonable_06.jpeg" alt="1108_unreasonable_06.jpeg" style="object-position: center 60%;">
-</div>
-
 <!-- THE PROCESS -->
 <section id="how-we-work">
   <div class="how-inner">
@@ -316,6 +314,16 @@
     </div>
   </div>
 </section>
+
+<!-- MOBILE TEASER GALLERY -->
+<div class="mobile-teaser-gallery">
+  <img src="images/UK22_84-5K.jpeg" alt="">
+  <img src="images/HOSTING_IanMatteson_0155.jpeg" alt="">
+  <img src="images/UNReasonable_2885.jpeg" alt="">
+  <img src="images/120318_unreasonable_07.jpeg" alt="">
+  <img src="images/1108_unreasonable_06.jpeg" alt="">
+  <img src="images/1107_unreasonable_35.png" alt="">
+</div>
 
 <!-- INTERLUDE 2: rainy night -->
 <div class="interlude-dark">
@@ -538,4 +546,4 @@
   });
 </script>
 </body>
-</html> 
+</html>
